@@ -1,0 +1,2 @@
+# Bellavista
+hotel-bellavista
