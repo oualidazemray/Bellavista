@@ -1,118 +1,252 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-
+import BookingDiv from "@/components/ui/BookingDiv";
+import Footer from "@/components/ui/Footer";
 export default function Gallery() {
-  // Array of gallery images with src and alt text
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  // Array of gallery images with src, alt text and description - using darker images
   const galleryImages = [
     {
-      src: "/gallery/food1.jpg",
-      alt: "Assorted dishes and cuisine",
-      width: 2,
-      height: 2,
-    },
-    { src: "/gallery/staff.jpg", alt: "Hotel staff", width: 1, height: 1 },
-    { src: "/gallery/bar.jpg", alt: "Hotel bar", width: 1, height: 1 },
-    {
-      src: "/gallery/buffet.jpg",
-      alt: "Breakfast buffet",
-      width: 1,
-      height: 1,
+      src: "https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg",
+      alt: "Fine dining setup",
+      description:
+        "Elegant table settings in our award-winning restaurant featuring ambient lighting and sophisticated decor.",
     },
     {
-      src: "/gallery/restaurant.jpg",
-      alt: "Restaurant interior",
-      width: 1,
-      height: 1,
+      src: "https://images.pexels.com/photos/2788792/pexels-photo-2788792.jpeg",
+      alt: "Luxury cocktail bar",
+      description:
+        "Our master mixologists craft signature cocktails in the intimate atmosphere of our lounge bar.",
     },
     {
-      src: "/gallery/hotel-night.jpg",
-      alt: "Hotel at night",
-      width: 2,
-      height: 2,
+      src: "https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg",
+      alt: "Night swim",
+      description:
+        "Experience our illuminated pool area, perfect for evening relaxation under the stars.",
     },
     {
-      src: "/gallery/dining.jpg",
-      alt: "Fine dining setting",
-      width: 1,
-      height: 1,
-    },
-    { src: "/gallery/lounge.jpg", alt: "Hotel lounge", width: 1, height: 1 },
-    {
-      src: "/gallery/hallway.jpg",
-      alt: "Elegant hotel hallway",
-      width: 1,
-      height: 1,
+      src: "https://images.pexels.com/photos/1838554/pexels-photo-1838554.jpeg",
+      alt: "Luxury suite",
+      description:
+        "Our premium suites offer unparalleled comfort with elegant furnishings and attention to detail.",
     },
     {
-      src: "/gallery/sunset.jpg",
-      alt: "Beach sunset view",
-      width: 1,
-      height: 1,
+      src: "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg",
+      alt: "Waterfront dining",
+      description:
+        "Enjoy exquisite cuisine with spectacular waterfront views from our terrace restaurant.",
     },
     {
-      src: "/gallery/restaurant-terrace.jpg",
-      alt: "Restaurant terrace",
-      width: 1,
-      height: 1,
-    },
-    { src: "/gallery/pool-area.jpg", alt: "Pool area", width: 2, height: 1 },
-    {
-      src: "/gallery/beach-lounge.jpg",
-      alt: "Beach loungers",
-      width: 1,
-      height: 1,
+      src: "https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg",
+      alt: "Cozy coffee corner",
+      description:
+        "Our café offers premium coffee and pastries in a warm, inviting atmosphere.",
     },
     {
-      src: "/gallery/dining-poolside.jpg",
-      alt: "Poolside dining",
-      width: 1,
-      height: 1,
+      src: "https://images.pexels.com/photos/3201763/pexels-photo-3201763.jpeg",
+      alt: "Luxury bathroom",
+      description:
+        "Indulge in our spa-inspired bathrooms featuring premium amenities and elegant design.",
     },
     {
-      src: "/gallery/indoor-pool.jpg",
-      alt: "Indoor swimming pool",
-      width: 1,
-      height: 1,
+      src: "https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg",
+      alt: "Conference facilities",
+      description:
+        "State-of-the-art meeting rooms equipped with the latest technology for your business needs.",
+    },
+    {
+      src: "https://images.pexels.com/photos/1838554/pexels-photo-1838554.jpeg",
+      alt: "Evening beach setup",
+      description:
+        "Romantic beachfront dining experiences under the stars with torch lighting.",
+    },
+    {
+      src: "https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg",
+      alt: "Spa treatment room",
+      description:
+        "Rejuvenate in our tranquil spa treatment rooms with expert therapists and premium products.",
+    },
+    {
+      src: "https://images.pexels.com/photos/5490917/pexels-photo-5490917.jpeg",
+      alt: "Dark ambiance dining",
+      description:
+        "Our signature restaurant offers an intimate atmosphere with exquisite tasting menus.",
+    },
+    {
+      src: "https://images.pexels.com/photos/237371/pexels-photo-237371.jpeg",
+      alt: "Infinity pool view",
+      description:
+        "Our infinity pool offers panoramic views of the surrounding landscape.",
+    },
+    {
+      src: "https://images.pexels.com/photos/2736388/pexels-photo-2736388.jpeg",
+      alt: "Beach sunset",
+      description:
+        "Experience breathtaking sunsets from our private beach access.",
+    },
+    {
+      src: "https://images.pexels.com/photos/3201921/pexels-photo-3201921.jpeg",
+      alt: "Luxury bedroom",
+      description:
+        "Our suites feature premium bedding and elegant decor for the ultimate comfort.",
+    },
+    {
+      src: "https://images.pexels.com/photos/4825701/pexels-photo-4825701.jpeg",
+      alt: "Wine cellar",
+      description:
+        "Our extensive wine collection features rare vintages and local specialties.",
+    },
+    {
+      src: "https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg",
+      alt: "Candlelit dinner",
+      description:
+        "Intimate dining experiences with personalized service and gourmet cuisine.",
+    },
+    {
+      src: "https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg",
+      alt: "Hotel facade night",
+      description:
+        "The elegant exterior of our resort illuminated against the evening sky.",
+    },
+    {
+      src: "https://images.pexels.com/photos/1579253/pexels-photo-1579253.jpeg",
+      alt: "Breakfast spread",
+      description:
+        "Start your day with our gourmet breakfast selection featuring local delicacies.",
+    },
+    {
+      src: "https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg",
+      alt: "Lobby lounge",
+      description:
+        "Our welcoming lobby features comfortable seating areas and attentive service.",
+    },
+    {
+      src: "https://images.pexels.com/photos/5491014/pexels-photo-5491014.jpeg",
+      alt: "Cocktail crafting",
+      description:
+        "Watch our skilled bartenders craft signature cocktails using premium spirits and fresh ingredients.",
     },
   ];
 
-  return (
-    <section className="relative py-16  bg-black dark:bg-slate-900">
-      {/* Background palm tree silhouette decorations */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none overflow-hidden">
-        <div className="absolute top-20 right-10 text-white text-8xl">🌴</div>
-        <div className="absolute bottom-40 left-20 text-white text-8xl">🌴</div>
-      </div>
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+  };
 
-      <div className="container mx-auto px-4">
-        {/* Gallery heading */}
-        <h2 className="text-4xl md:text-5xl font-serif text-white text-center mb-12">
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
+
+  // Create a larger 6x6 matrix with main diagonal and +1/-1 diagonals empty
+  const createMatrix = () => {
+    const size = 6;
+    const matrix = [];
+    let imageIndex = 0;
+
+    for (let row = 0; row < size; row++) {
+      const currentRow = [];
+      for (let col = 0; col < size; col++) {
+        // Check if position is on main diagonal or +1/-1 diagonals
+        const isDiagonal = row === col || row === col + 1 || row === col - 1;
+
+        if (isDiagonal) {
+          currentRow.push({ isEmpty: true });
+        } else if (imageIndex < galleryImages.length) {
+          currentRow.push({
+            isEmpty: false,
+            image: galleryImages[imageIndex],
+          });
+          imageIndex++;
+        } else {
+          currentRow.push({ isEmpty: true });
+        }
+      }
+      matrix.push(currentRow);
+    }
+
+    return matrix;
+  };
+
+  const matrix = createMatrix();
+
+  return (
+    <section
+      className="relative pt-20  bg-black bg-cover bg-center min-h-screen"
+      style={{
+        backgroundImage: "url('/GalleryBack.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="container mx-auto max-w-7xl">
+        <h2 className="text-white text-6xl font-theseasons tracking-wider text-center mb-16">
           GALLERY
         </h2>
 
-        {/* Gallery grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
-          {galleryImages.map((image, index) => (
-            <div
-              key={index}
-              className={`relative overflow-hidden ${
-                image.width === 2 ? "col-span-2" : "col-span-1"
-              } ${
-                image.height === 2 ? "row-span-2" : "row-span-1"
-              } aspect-square md:aspect-auto`}
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                className="object-cover hover:scale-110 transition-transform duration-500"
+        {matrix.map((row, rowIndex) => (
+          <div key={rowIndex} className="flex w-full mb-2">
+            {row.map((cell, colIndex) => (
+              <div
+                key={`${rowIndex}-${colIndex}`}
+                className={`w-1/6 aspect-square px-1 ${
+                  cell.isEmpty ? "opacity-0" : ""
+                }`}
+              >
+                {!cell.isEmpty && cell.image && (
+                  <div
+                    className="relative w-full h-full overflow-hidden rounded-sm cursor-pointer shadow-md"
+                    onClick={() => handleImageClick(cell.image)}
+                  >
+                    <img
+                      src={cell.image.src}
+                      alt={cell.image.alt}
+                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      {/* Modal for enlarged image */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4"
+          onClick={closeModal}
+        >
+          <div
+            className="bg-gray-900 text-white rounded-lg overflow-hidden max-w-4xl w-full max-h-[90vh] shadow-xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative h-80 md:h-96">
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                className="w-full h-full object-cover"
               />
             </div>
-          ))}
+            <div className="p-6">
+              <h3 className="text-xl font-semibold mb-2">
+                {selectedImage.alt}
+              </h3>
+              <p className="text-gray-300">{selectedImage.description}</p>
+            </div>
+          </div>
         </div>
+      )}
+      <div className="relative mx-8 my-8 bg-black bg-opacity-20">
+        {/* your other gallery code here */}
+
+        <BookingDiv />
+
+        {/* more gallery content */}
       </div>
+      <section className="relative mt-8 mx-1  rounded-t-2xl  bg-black  bg-opacity-75">
+        <Footer />
+      </section>
     </section>
   );
 }

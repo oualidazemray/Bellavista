@@ -1,7 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+.dark * {
+  color: inherit; /* Example style to avoid an empty ruleset */
+}
 
 @theme inline {
   --color-background: var(--background);
@@ -41,6 +43,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --color-brawny: #2a201b;
 }
 
 :root {
@@ -119,4 +122,14 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+@font-face {
+  font-family: "Theseasons";
+  src: url("/fonts/theseasons.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Theseasons", sans-serif;
 }

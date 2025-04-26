@@ -1,49 +1,44 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BeachBanner() {
   return (
-    <section className="relative h-[600px] w-full overflow-hidden">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0">
-        <Image
-          src="/beachBack.jpg"
-          alt="Sandy beach with ocean view"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-        />
-        {/* Light overlay */}
-        <div className="absolute inset-0 bg-black/20"></div>
-        {/* Top black gradient */}
-        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-black to-transparent"></div>
-      </div>
+    <section className="relative w-full min-h-screen overflow-hidden">
+      {/* Background image */}
+      <Image
+        className="absolute inset-0 object-cover brightness-75 -translate-y-20"
+        src="/beachBack.jpg"
+        alt="Beach sunset with umbrellas"
+        layout="fill"
+        objectFit="cover"
+        priority
+      />
 
-      {/* Content container - positioned on the RIGHT */}
-      <div className="relative h-full flex flex-col items-start justify-center ml-auto mr-16 max-w-xl">
-        {/* Vertical line decoration - now on the right side */}
-        <div className="absolute right-8 top-1/4 bottom-1/4 w-0.5 bg-white opacity-80"></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80"></div>
 
-        {/* Palm tree decoration at bottom right */}
-        <div className="absolute bottom-8 right-8 text-white text-3xl">🌴</div>
+      {/* Content Container */}
+      <div className="absolute inset-0 flex items-center justify-end p-10 md:p-20">
+        <div className="text-right max-w-md space-y-6">
+          {/* Main Heading */}
+          <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight">
+            Feel the sand <br /> under your feet
+          </h1>
 
-        {/* Main heading */}
-        <h2 className="text-5xl font-serif mb-6 text-white">
-          Feel the sand under your feet
-        </h2>
+          {/* Description Text */}
+          <p className="text-gray-300 text-lg leading-relaxed">
+            We love life at the beach. Being close to the ocean with endless
+            sandy beaches ensures a relaxed state of mind. It seems like time
+            stands still while watching the ocean.
+          </p>
 
-        {/* Description text */}
-        <div className="text-lg text-white mb-8 leading-relaxed">
-          <p>We love life at the beach. Being close</p>
-          <p>to the ocean with access to endless sandy</p>
-          <p>beach ensures a relaxed state of mind.</p>
-          <p>It seems like time stands still watching the ocean.</p>
+          {/* Explore Button */}
+          <Link href="#gallery">
+            <button className="bg-white text-blue-600 font-semibold px-6 py-3 rounded-full shadow hover:bg-blue-600 hover:text-white transition">
+              EXPLORE
+            </button>
+          </Link>
         </div>
-
-        {/* Explore button - white with blue text */}
-        <button className="bg-white hover:bg-white/90 text-blue-900 font-medium px-8 py-3 rounded-md transition-all duration-300">
-          EXPLORE
-        </button>
       </div>
     </section>
   );

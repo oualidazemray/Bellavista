@@ -3,14 +3,19 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1A1209] text-white py-8">
+    <footer className="  text-white darke:text-white pt-8">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap justify-between items-center">
           {/* Logo section */}
           <div className="mb-6 md:mb-0">
-            <Link href="/" className="flex items-center">
-              <div className="text-2xl font-serif mr-1">BELLAVISTA</div>
-              <span className="text-2xl">🌴</span>
+            <Link href="/">
+              <Image
+                src="/bellavistaIcon.png"
+                alt="Bellavista Logo"
+                width={150}
+                height={50}
+                className="object-contain"
+              />
             </Link>
           </div>
 
@@ -20,7 +25,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/history"
-                  className="hover:text-amber-300 transition-colors"
+                  className="hover:text-amber-300 transition-colors dark:hover:text-amber-400"
                 >
                   Depuis 1923
                 </Link>
@@ -28,7 +33,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/magazine"
-                  className="hover:text-amber-300 transition-colors"
+                  className="hover:text-amber-300 transition-colors dark:hover:text-amber-400"
                 >
                   Le Magazine
                 </Link>
@@ -36,7 +41,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/press"
-                  className="hover:text-amber-300 transition-colors"
+                  className="hover:text-amber-300 transition-colors dark:hover:text-amber-400"
                 >
                   Presse
                 </Link>
@@ -50,7 +55,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/brochure"
-                  className="hover:text-amber-300 transition-colors"
+                  className="hover:text-amber-300 transition-colors dark:hover:text-amber-400"
                 >
                   E-Brochure
                 </Link>
@@ -58,7 +63,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/videos"
-                  className="hover:text-amber-300 transition-colors"
+                  className="hover:text-amber-300 transition-colors dark:hover:text-amber-400"
                 >
                   Galerie vidéos
                 </Link>
@@ -66,7 +71,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/photos"
-                  className="hover:text-amber-300 transition-colors"
+                  className="hover:text-amber-300 transition-colors dark:hover:text-amber-400"
                 >
                   Galerie photos
                 </Link>
@@ -80,7 +85,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/careers"
-                  className="hover:text-amber-300 transition-colors"
+                  className="hover:text-amber-300 transition-colors dark:hover:text-amber-400"
                 >
                   Carrières
                 </Link>
@@ -88,7 +93,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/legal"
-                  className="hover:text-amber-300 transition-colors"
+                  className="hover:text-amber-300 transition-colors dark:hover:text-amber-400"
                 >
                   Mentions légales
                 </Link>
@@ -96,7 +101,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/privacy"
-                  className="hover:text-amber-300 transition-colors"
+                  className="hover:text-amber-300 transition-colors dark:hover:text-amber-400"
                 >
                   Confidentialité
                 </Link>
@@ -110,7 +115,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="hover:text-amber-300 transition-colors"
+                  className="hover:text-amber-300 transition-colors dark:hover:text-amber-400"
                 >
                   Contact
                 </Link>
@@ -118,7 +123,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/faq"
-                  className="hover:text-amber-300 transition-colors"
+                  className="hover:text-amber-300 transition-colors dark:hover:text-amber-400"
                 >
                   FAQ
                 </Link>
@@ -126,7 +131,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/club"
-                  className="hover:text-amber-300 transition-colors"
+                  className="hover:text-amber-300 transition-colors dark:hover:text-amber-400"
                 >
                   Leaders Club
                 </Link>
@@ -136,7 +141,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright section */}
-        <div className="mt-8 text-center text-sm text-white/60">
+        <div className="mt-8 text-center text-sm text-white/60 dark:text-white/80">
           <p>
             © {new Date().getFullYear()} Hotel Bellavista. All rights reserved.
           </p>
