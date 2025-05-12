@@ -11,11 +11,11 @@ export default function BookingDiv() {
   const [children, setChildren] = useState(0);
   const [promoCodeVisible, setPromoCodeVisible] = useState(false);
   const [promoCode, setPromoCode] = useState("");
-  const [arrivalDate, setArrivalDate] = useState(new Date()); // State for arrival date
-  const [departureDate, setDepartureDate] = useState(new Date()); // State for departure date
+  const [arrivalDate, setArrivalDate] = useState<Date | null>(new Date()); // State for arrival date
+  const [departureDate, setDepartureDate] = useState<Date | null>(new Date()); // State for departure date
 
-  const increment = (setter, value) => setter(value + 1);
-  const decrement = (setter, value) => value > 0 && setter(value - 1);
+  const increment = (setter: (value: number) => void, value: number) => setter(value + 1);
+  const decrement = (setter: (value: number) => void, value: number) => value > 0 && setter(value - 1);
 
   const handleBooking = () => {
     alert(
