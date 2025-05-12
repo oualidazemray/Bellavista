@@ -4,6 +4,7 @@ import * as React from "react";
 import BeachBanner from "@/components/ui/BeachBanner";
 import RoomBanner from "@/components/ui/RoomBanner";
 import Gallery from "@/components/ui/Gallery";
+import { Navbar } from "@/components/ui/NavBar";
 import Image from "next/image";
 
 export default function HomePage() {
@@ -19,6 +20,7 @@ export default function HomePage() {
 
   return (
     <>
+      <Navbar />
       <div className="relative min-h-screen w-full overflow-hidden bg-white transition-colors duration-300">
         {/* Video Background */}
         <div className="absolute inset-0 w-full h-full">

@@ -26,7 +26,7 @@ export function Navbar() {
           <NavLink href="/facilities">Facilities</NavLink>
           <NavLink href="/rooms">Rooms</NavLink>
           <NavLink href="/contact-us">Contact-us</NavLink>
-          <NavLink href="/sign">sign</NavLink>
+          <NavLink href="/signup">sign</NavLink>
         </nav>
       </div>
     </header>
