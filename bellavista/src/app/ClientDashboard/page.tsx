@@ -2,11 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
-import { Sidebar } from "@/components/ui/ClientSideBar";
+import Sidebar from "@/components/ui/ClientSideBar";
 
-import { ReactNode } from "react";
-
-const DashboardPage = ({ children }: { children: ReactNode }) => {
+function ClientDashboard() {
   return (
     <div className="relative h-screen w-full overflow-hidden">
       {/* Background Image */}
@@ -19,14 +17,10 @@ const DashboardPage = ({ children }: { children: ReactNode }) => {
           priority
         />
       </div>
-      {/* Dashboard Container */}
-      <main className="absolute inset-0 flex items-center justify-center">
-        {children}
-      </main>
       {/* Sidebar */}
       <Sidebar />
     </div>
   );
-};
+}
 
-export default DashboardPage;
+export default ClientDashboard;
