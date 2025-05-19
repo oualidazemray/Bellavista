@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
+<<<<<<< Updated upstream:bellavista/src/components/ui/Gallery.tsx
 import Image from "next/image";
+=======
+import BookingDiv from "@/components/home/BookingDiv";
+import Footer from "@/components/home/Footer";
+export default function Gallery() {
+  const [selectedImage, setSelectedImage] = useState(null);
+>>>>>>> Stashed changes:bellavista/src/components/home/Gallery.tsx
 
 export default function Gallery() {
   // Array of gallery images with src and alt text

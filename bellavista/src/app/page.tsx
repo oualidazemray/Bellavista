@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+<<<<<<< Updated upstream
 import { useTheme } from "next-themes";
 import { Navbar } from "@/components/ui/NavBar";
 import BeachBanner from "@/components/ui/BeachBanner";
@@ -8,6 +9,12 @@ import RoomBanner from "@/components/ui/RoomBanner";
 import Footer from "@/components/ui/Footer";
 import Gallery from "@/components/ui/Gallery";
 import BookingSection from "@/components/ui/BookingSection";
+=======
+import BeachBanner from "@/components/home/BeachBanner";
+import RoomBanner from "@/components/home/RoomBanner";
+import Gallery from "@/components/home/Gallery";
+import { Navbar } from "@/components/home/NavBar";
+>>>>>>> Stashed changes
 import Image from "next/image";
 
 export default function HomePage() {
